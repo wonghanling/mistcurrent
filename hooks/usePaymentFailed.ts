@@ -24,7 +24,11 @@ export const usePaymentFailed = () => {
   }, []);
 
   const loadFailedOrderData = (): void => {
-    // 从URL参数获取失败订单数据
+    // 从URL参数获取失败订单数据，但只在客户端执行
+    if (typeof window === 'undefined') {
+      return; // 服务端渲染时直接返回
+    }
+    
     const params = new URLSearchParams(window.location.search);
     const orderId = params.get('order_id');
     const planName = params.get('plan');
