@@ -29,6 +29,7 @@ export const usePaymentFailed = () => {
       return; // 服务端渲染时直接返回
     }
     
+    // 从URL参数获取失败订单数据
     const params = new URLSearchParams(window.location.search);
     const orderId = params.get('order_id');
     const planName = params.get('plan');
@@ -53,7 +54,7 @@ export const usePaymentFailed = () => {
     setRetryLoading(true);
     try {
       // 直接跳转到 checkout 页面重试支付
-      router.push('http://localhost:3000/checkout');
+      router.push('/checkout');
     } catch (error) {
       setMessage('Retry failed, please try again later');
       console.error('Retry payment error:', error);

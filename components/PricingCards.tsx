@@ -21,9 +21,9 @@ const pricingPlans: PricingPlan[] = [
     id: '1month',
     title: '1 Month',
     subtitle: 'Monthly Plan',
-    price: '$0.1',
+    price: '$11.99',
     period: '/month',
-    billingInfo: 'Billed $0.1 every month',
+    billingInfo: 'Billed $11.99 every month',
     discount: 'SAVE 0%',
     features: [
       'Industry-leading Network',
@@ -39,10 +39,10 @@ const pricingPlans: PricingPlan[] = [
     id: '6month',
     title: '6 Months',
     subtitle: '6-Month Plan',
-    price: '$0.1',
-    originalPrice: '$0.1',
+    price: '$6.99',
+    originalPrice: '$11.99',
     period: '/month',
-    billingInfo: 'Every 6 months total $0.1',
+    billingInfo: 'Every 6 months total $41.94',
     discount: 'SAVE 42%',
     features: [
       'Industry-leading Network',
@@ -59,8 +59,8 @@ const pricingPlans: PricingPlan[] = [
     id: '12month',
     title: '12 Months',
     subtitle: 'Annual Plan',
-    price: '$0.1',
-    originalPrice: '$0.1',
+    price: '$5.99',
+    originalPrice: '$11.99',
     period: '/month',
     billingInfo: 'Billed yearly, then renews yearly',
     discount: 'SAVE 58%',
@@ -80,10 +80,10 @@ const pricingPlans: PricingPlan[] = [
     id: '2year',
     title: '2 Years + 2 Months Free',
     subtitle: '2-Year Plan + 2 Months Free',
-    price: '$0.1',
-    originalPrice: '$0.1',
+    price: '$2.19',
+    originalPrice: '$11.99',
     period: '/month',
-    billingInfo: 'First 26 months total $0.1, then annual renewal',
+    billingInfo: 'First 26 months total $52.56, then annual renewal',
     discount: 'SAVE 82%',
     isSpecialDeal: true,
     features: [
@@ -110,7 +110,7 @@ const PricingCards: React.FC = () => {
             <span className="whitespace-nowrap">Special Deal: Best Value Plan</span>
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Your network acceleration protected from <span className="text-green-600 font-semibold">$0.1 a month</span>
+            Your network acceleration protected from <span className="text-green-600 font-semibold">$2.19 a month</span>
           </p>
           <div className="inline-block bg-green-600 text-white px-6 py-2 rounded-full text-sm font-medium">
             Discount applied: SPECIALDEAL

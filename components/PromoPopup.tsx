@@ -104,10 +104,10 @@ const PromoPopup: React.FC<PromoPopupProps> = ({ onClose }) => {
           {/* Offer Details */}
           <div className="bg-green-50 rounded-2xl p-6 mb-6 border-2 border-green-200">
             <div className="text-center">
-              <div className="text-4xl font-bold text-black mb-2">$0.1 <span className="text-lg text-black">/month</span></div>
-              <div className="text-black line-through text-lg mb-3">Original Price $0.1/month</div>
+              <div className="text-4xl font-bold text-black mb-2">$5.99 <span className="text-lg text-black">/month</span></div>
+              <div className="text-black line-through text-lg mb-3">Original Price $11.99/month</div>
               <div className="bg-gradient-to-r from-red-500 to-orange-500 text-white px-6 py-2 rounded-full text-sm font-bold inline-block mb-4">
-                💥 Save 88% · Only ¥0.1 per day
+                💥 Save 88% · Only ¥1.14 per day
               </div>
               <div className="mb-3">
                 <button 

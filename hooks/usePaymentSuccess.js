@@ -7,25 +7,25 @@ import { VpnService } from '../utils/vpnService';
 const PLAN_CONFIG = {
   '1month': { 
     name: '1个月套餐', 
-    price: 0.1, 
+    price: 11.99, 
     duration: 1,
     displayName: '1-Month VPN Plan'
   },
   '6month': { 
     name: '6个月套餐', 
-    price: 0.1, 
+    price: 41.94, 
     duration: 6,
     displayName: '6-Month VPN Plan' 
   },
   '12month': { 
     name: '12个月套餐', 
-    price: 0.1, 
+    price: 71.88, 
     duration: 12,
     displayName: '12-Month VPN Plan'
   },
   '2year': { 
     name: '2年+2个月免费', 
-    price: 0.1, 
+    price: 52.56, 
     duration: 26,
     displayName: '2-Year + 2 Months Free VPN Plan'
   }

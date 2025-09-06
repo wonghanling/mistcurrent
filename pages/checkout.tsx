@@ -63,31 +63,31 @@ const Checkout: React.FC = () => {
   const plans = {
     '1month': { 
       name: '1 Month Plan', 
-      price: 0.1, 
-      originalPrice: 0.1, 
+      price: 11.99, 
+      originalPrice: 11.99, 
       discount: 0,
-      totalPrice: 0.1
+      totalPrice: 11.99
     },
     '6month': { 
       name: '6 Month Plan', 
-      price: 0.1, 
-      originalPrice: 0.1, 
+      price: 6.99, 
+      originalPrice: 11.99, 
       discount: 42,
-      totalPrice: 0.1
+      totalPrice: 41.94
     },
     '12month': { 
       name: '12 Month Plan', 
-      price: 0.1, 
-      originalPrice: 0.1, 
+      price: 5.99, 
+      originalPrice: 11.99, 
       discount: 50,
-      totalPrice: 0.1
+      totalPrice: 71.88
     },
     '2year': { 
       name: '2 Years + 2 Months Free', 
-      price: 0.1, 
-      originalPrice: 0.1, 
+      price: 2.19, 
+      originalPrice: 11.99, 
       discount: 82,
-      totalPrice: 0.1
+      totalPrice: 52.56
     }
   };
 
