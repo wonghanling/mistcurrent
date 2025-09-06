@@ -42,7 +42,7 @@ const SecurityFeatures = () => {
           <div className="relative order-2 lg:order-1">
             <div className="relative w-full h-80 md:h-96 lg:h-[500px] rounded-2xl shadow-lg border-8 border-gray-700 overflow-hidden">
               <Image
-                src="/26 [转换].jpg"
+                src="/security-shield.jpg"
                 alt="Data Security Protection"
                 fill
                 className="object-cover"

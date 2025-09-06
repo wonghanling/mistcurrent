@@ -42,7 +42,7 @@ const PaymentLoading: React.FC<PaymentLoadingProps> = ({
       {/* Background Image - 使用网站相同的保险箱背景 */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/6.jpg"
+          src="/secure-delivery.jpg"
           alt="安全保险箱背景"
           fill
           className="object-cover"

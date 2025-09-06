@@ -15,7 +15,7 @@ const Hero: React.FC = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/6.jpg"
+          src="/secure-delivery.jpg"
           alt="Secure vault background"
           fill
           className="object-cover"
