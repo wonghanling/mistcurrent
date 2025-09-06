@@ -1,8 +1,20 @@
 import React from 'react';
 import Image from 'next/image';
-import { usePaymentFailed } from '../../hooks/usePaymentFailed';
+import dynamic from 'next/dynamic';
 
-const PaymentFailed: React.FC = () => {
+// 动态导入组件，禁用SSR
+const PaymentFailedContent = dynamic(() => Promise.resolve(PaymentFailedContentComponent), {
+  ssr: false,
+  loading: () => (
+    <div className="flex justify-center items-center min-h-screen">
+      <div>Loading...</div>
+    </div>
+  )
+});
+
+const PaymentFailedContentComponent: React.FC = () => {
+  const { usePaymentFailed } = require('../../hooks/usePaymentFailed');
+  
   // 使用钩子获取所有状态和方法，与Airwallex集成
   const {
     orderData,
@@ -126,6 +138,10 @@ const PaymentFailed: React.FC = () => {
       </div>
     </div>
   );
+};
+
+const PaymentFailed: React.FC = () => {
+  return <PaymentFailedContent />;
 };
 
 export default PaymentFailed;
