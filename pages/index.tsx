@@ -128,3 +128,8 @@ const Home: React.FC = () => {
 };
 
 export default Home;
+
+// 阻止静态预渲染，解决SSR构建错误（PromoPopup组件使用了window/document）
+export async function getServerSideProps() {
+  return { props: {} };
+}
