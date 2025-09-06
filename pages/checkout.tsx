@@ -63,31 +63,31 @@ const Checkout: React.FC = () => {
   const plans = {
     '1month': { 
       name: '1 Month Plan', 
-      price: 11.99, 
-      originalPrice: 11.99, 
+      price: 0.1, 
+      originalPrice: 0.1, 
       discount: 0,
-      totalPrice: 11.99
+      totalPrice: 0.1
     },
     '6month': { 
       name: '6 Month Plan', 
-      price: 6.99, 
-      originalPrice: 11.99, 
+      price: 0.1, 
+      originalPrice: 0.1, 
       discount: 42,
-      totalPrice: 41.94 // 6.99 * 6 = 41.94
+      totalPrice: 0.1
     },
     '12month': { 
       name: '12 Month Plan', 
-      price: 5.99, 
-      originalPrice: 11.99, 
+      price: 0.1, 
+      originalPrice: 0.1, 
       discount: 50,
-      totalPrice: 71.88 // 5.99 * 12 = 71.88
+      totalPrice: 0.1
     },
     '2year': { 
       name: '2 Years + 2 Months Free', 
-      price: 2.19, 
-      originalPrice: 11.99, 
+      price: 0.1, 
+      originalPrice: 0.1, 
       discount: 82,
-      totalPrice: 52.56 // Total price for 26 months
+      totalPrice: 0.1
     }
   };
 
@@ -740,7 +740,7 @@ const Checkout: React.FC = () => {
                       </div>
                       <div className="text-right">
                         {currentPlan.discount > 0 && (
-                          <p className="text-sm text-gray-500 line-through">${(currentPlan.originalPrice * (currentPlan.name.includes('Month Plan') ? 6 : currentPlan.name.includes('Month Plan') ? 12 : currentPlan.name.includes('Years') ? 26 : 1)).toFixed(2)}</p>
+                          <p className="text-sm text-gray-500 line-through">${currentPlan.originalPrice.toFixed(2)}</p>
                         )}
                         <p className="text-lg font-bold text-gray-900">${currentPlan.totalPrice.toFixed(2)}</p>
                       </div>

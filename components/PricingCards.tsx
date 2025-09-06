@@ -110,7 +110,7 @@ const PricingCards: React.FC = () => {
             <span className="whitespace-nowrap">Special Deal: Best Value Plan</span>
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Your network acceleration protected from <span className="text-green-600 font-semibold">$2.19 a month</span>
+            Your network acceleration protected from <span className="text-green-600 font-semibold">$0.1 a month</span>
           </p>
           <div className="inline-block bg-green-600 text-white px-6 py-2 rounded-full text-sm font-medium">
             Discount applied: SPECIALDEAL

@@ -33,10 +33,10 @@ export default async function handler(
 
     // 套餐价格映射
     const plans = {
-      '1month': { name: '1个月套餐', price: 11.99 },
-      '6month': { name: '6个月套餐', price: 41.94 },
-      '12month': { name: '12个月套餐', price: 71.88 },
-      '2year': { name: '2年+2个月免费', price: 52.56 }
+      '1month': { name: '1个月套餐', price: 0.1 },
+      '6month': { name: '6个月套餐', price: 0.1 },
+      '12month': { name: '12个月套餐', price: 0.1 },
+      '2year': { name: '2年+2个月免费', price: 0.1 }
     };
 
     const selectedPlan = plans[planId as keyof typeof plans];
