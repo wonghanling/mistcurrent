@@ -1,11 +1,23 @@
 import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
-import { DocumentDuplicateIcon } from '@heroicons/react/24/solid';
-import { useAccount } from '../hooks/useAccount';
+import dynamic from 'next/dynamic';
 
-const AccountManagement: React.FC = () => {
+// 动态导入组件，禁用SSR
+const AccountManagementContent = dynamic(() => Promise.resolve(AccountManagementContentComponent), {
+  ssr: false,
+  loading: () => (
+    <div className="flex justify-center items-center min-h-screen">
+      <div>Loading...</div>
+    </div>
+  )
+});
+
+const AccountManagementContentComponent: React.FC = () => {
+  const { useRouter } = require('next/router');
+  const { DocumentDuplicateIcon } = require('@heroicons/react/24/solid');
+  const { useAccount } = require('../hooks/useAccount');
+  
   // 使用钩子获取所有状态和方法
   const {
     user,
@@ -222,6 +234,10 @@ const AccountManagement: React.FC = () => {
       </div>
     </>
   );
+};
+
+const AccountManagement: React.FC = () => {
+  return <AccountManagementContent />;
 };
 
 export default AccountManagement;

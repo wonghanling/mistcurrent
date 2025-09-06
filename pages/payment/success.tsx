@@ -1,10 +1,22 @@
 import React from 'react';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
-import { CheckCircleIcon, DocumentDuplicateIcon } from '@heroicons/react/24/solid';
-import { usePaymentSuccess } from '../../hooks/usePaymentSuccess';
+import dynamic from 'next/dynamic';
 
-const PaymentSuccess: React.FC = () => {
+// 动态导入组件，禁用SSR
+const PaymentSuccessContent = dynamic(() => Promise.resolve(PaymentSuccessContentComponent), {
+  ssr: false,
+  loading: () => (
+    <div className="flex justify-center items-center min-h-screen">
+      <div>Loading...</div>
+    </div>
+  )
+});
+
+const PaymentSuccessContentComponent: React.FC = () => {
+  const { useRouter } = require('next/router');
+  const { CheckCircleIcon, DocumentDuplicateIcon } = require('@heroicons/react/24/solid');
+  const { usePaymentSuccess } = require('../../hooks/usePaymentSuccess');
+  
   const router = useRouter();
   
   // 使用钩子获取所有状态和方法，测试模式下直接显示内容
@@ -382,6 +394,10 @@ const PaymentSuccess: React.FC = () => {
       </div>
     </div>
   );
+};
+
+const PaymentSuccess: React.FC = () => {
+  return <PaymentSuccessContent />;
 };
 
 export default PaymentSuccess;
