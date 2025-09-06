@@ -38,10 +38,10 @@ const AccountManagement: React.FC = () => {
   // 套餐配置类型和映射
   type PlanKey = '1month' | '6month' | '12month' | '2year';
   const PLAN_CONFIG: Record<PlanKey, { name: string; price: string; duration: number }> = {
-    '1month': { name: '1-Month Network Acceleration Plan', price: '$11.99', duration: 1 },
-    '6month': { name: '6-Month Network Acceleration Plan', price: '$41.94', duration: 6 },
-    '12month': { name: '12-Month Network Acceleration Plan', price: '$71.88', duration: 12 },
-    '2year': { name: '2-Year + 2 Months Free Plan', price: '$52.56', duration: 26 }
+    '1month': { name: '1-Month Network Acceleration Plan', price: '$0.1', duration: 1 },
+    '6month': { name: '6-Month Network Acceleration Plan', price: '$0.1', duration: 6 },
+    '12month': { name: '12-Month Network Acceleration Plan', price: '$0.1', duration: 12 },
+    '2year': { name: '2-Year + 2 Months Free Plan', price: '$0.1', duration: 26 }
   };
   
   // 根据URL参数或默认使用12月套餐

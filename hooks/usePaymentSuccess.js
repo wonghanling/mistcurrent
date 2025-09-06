@@ -3,29 +3,29 @@ import { useRouter } from 'next/router';
 import { signUp, signIn, getCurrentUser } from '../lib/supabase';
 import { VpnService } from '../utils/vpnService';
 
-// 套餐配置映射
+// 套餐配置映射 - 测试价格 $0.01
 const PLAN_CONFIG = {
   '1month': { 
     name: '1个月套餐', 
-    price: 11.99, 
+    price: 0.1, 
     duration: 1,
     displayName: '1-Month VPN Plan'
   },
   '6month': { 
     name: '6个月套餐', 
-    price: 41.94, 
+    price: 0.1, 
     duration: 6,
     displayName: '6-Month VPN Plan' 
   },
   '12month': { 
     name: '12个月套餐', 
-    price: 71.88, 
+    price: 0.1, 
     duration: 12,
     displayName: '12-Month VPN Plan'
   },
   '2year': { 
     name: '2年+2个月免费', 
-    price: 52.56, 
+    price: 0.1, 
     duration: 26,
     displayName: '2-Year + 2 Months Free VPN Plan'
   }
