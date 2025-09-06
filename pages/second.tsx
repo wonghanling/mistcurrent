@@ -503,3 +503,8 @@ const Second: React.FC = () => {
 };
 
 export default Second;
+
+// 阻止静态预渲染，解决SSR构建错误
+export async function getServerSideProps() {
+  return { props: {} };
+}
