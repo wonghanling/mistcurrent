@@ -129,3 +129,8 @@ const TermsOfService: React.FC = () => {
 };
 
 export default TermsOfService;
+
+// 阻止静态预渲染，解决SSR构建错误
+export async function getServerSideProps() {
+  return { props: {} };
+}
