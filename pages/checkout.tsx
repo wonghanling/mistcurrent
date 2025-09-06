@@ -344,8 +344,8 @@ const Checkout: React.FC = () => {
         // 显示支付成功信息
         alert(`Payment initialized successfully!\nOrder ID: ${result.paymentIntent.order_id}\nPayment Method: ${paymentMethods.find(m => m.id === methodId)?.name}\nEmail: ${formData.email}\nPlan: ${currentPlan.name}\nAmount: $${currentPlan.totalPrice.toFixed(2)}\n\nRedirecting to payment page...`);
         
-        // 跳转到支付成功页面（实际应该是Airwallex支付页面）
-        window.location.href = `/payment/success?order_id=${result.paymentIntent.order_id}&payment_intent_id=${result.paymentIntent.id}`;
+        // 跳转到加载页面处理Airwallex订单
+        window.location.href = `/loading-test?order_id=${result.paymentIntent.order_id}&payment_intent_id=${result.paymentIntent.id}`;
         
       } else {
         throw new Error(result.error || 'Payment initialization failed');
