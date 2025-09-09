@@ -98,6 +98,21 @@ const Home: React.FC = () => {
                 </button>
               </div>
               
+              {/* 动态向上三箭头 */}
+              <div className="mt-4 flex justify-center">
+                <div className="flex space-x-3">
+                  <svg className="w-8 h-8 text-green-500 animate-bounce" style={{animationDelay: '0s'}} fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 4l8 8h-6v8h-4v-8H4l8-8z"/>
+                  </svg>
+                  <svg className="w-8 h-8 text-green-500 animate-bounce" style={{animationDelay: '0.2s'}} fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 4l8 8h-6v8h-4v-8H4l8-8z"/>
+                  </svg>
+                  <svg className="w-8 h-8 text-green-500 animate-bounce" style={{animationDelay: '0.4s'}} fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 4l8 8h-6v8h-4v-8H4l8-8z"/>
+                  </svg>
+                </div>
+              </div>
+              
               {/* 按钮说明文字 */}
               <div className="mt-4 text-center">
                 <p className="text-green-600 font-semibold text-2xl">点击⏻立即获取</p>

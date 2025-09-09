@@ -93,16 +93,13 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           {/* Left side - Copyright and Links */}
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 sm:gap-6 text-black text-xs sm:text-sm">
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 sm:gap-6 text-white text-xs sm:text-sm">
             <span>© {currentYear} MistCurrent. 保留所有权利</span>
-            <Link href="/privacy" className="hover:text-black transition-colors duration-200">
+            <Link href="/privacy-policy" className="hover:text-gray-300 transition-colors duration-200">
               隐私政策
             </Link>
-            <Link href="/terms" className="hover:text-black transition-colors duration-200">
+            <Link href="/terms-of-service" className="hover:text-gray-300 transition-colors duration-200">
               服务条款
-            </Link>
-            <Link href="/cookie" className="hover:text-black transition-colors duration-200 hidden sm:inline">
-              Cookie 偏好
             </Link>
           </div>
 

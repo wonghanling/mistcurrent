@@ -3,10 +3,18 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { airwallexService } from '../../../lib/airwallex';
 import { createClient } from '@supabase/supabase-js';
 
-// 初始化Supabase客户端
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-const supabase = createClient(supabaseUrl, supabaseServiceKey);
+// 初始化Supabase客户端（可选，支持模拟模式）
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+let supabase = null;
+
+if (supabaseUrl && supabaseServiceKey && supabaseUrl !== 'your_supabase_url/') {
+  try {
+    supabase = createClient(supabaseUrl, supabaseServiceKey);
+  } catch (error) {
+    console.warn('Supabase初始化失败，使用模拟模式:', error);
+  }
+}
 
 export default async function handler(
   req: NextApiRequest,
@@ -44,26 +52,54 @@ export default async function handler(
       return res.status(400).json({ error: '无效的套餐ID' });
     }
 
-    // 创建支付意图
-    const paymentIntent = await airwallexService.createPaymentIntent({
-      planId,
-      amount: selectedPlan.price,
-      customerEmail,
-      customerName
-    });
+    // 检查是否为开发模式或模拟模式
+    const isDevelopment = process.env.NODE_ENV === 'development';
+    const useMockPayment = isDevelopment || !supabase;
 
-    // 返回支付信息
-    res.status(200).json({
-      success: true,
-      paymentIntent: {
-        id: paymentIntent.id,
-        client_secret: paymentIntent.client_secret,
-        amount: paymentIntent.amount,
-        currency: paymentIntent.currency,
-        order_id: paymentIntent.order_id
-      },
-      plan: selectedPlan
-    });
+    if (useMockPayment) {
+      // 模拟支付模式
+      console.log('使用模拟支付模式 - 开发环境');
+      
+      const mockOrderId = `ORDER_MOCK_${Date.now()}_${Math.random().toString(36).substr(2, 9).toUpperCase()}`;
+      
+      // 返回模拟支付信息
+      res.status(200).json({
+        success: true,
+        paymentIntent: {
+          id: `pi_mock_${Date.now()}`,
+          client_secret: `pi_mock_${Date.now()}_secret`,
+          amount: Math.round(selectedPlan.price * 100), // 转换为分
+          currency: 'USD',
+          order_id: mockOrderId
+        },
+        plan: selectedPlan,
+        mock: true // 标识为模拟支付
+      });
+      
+    } else {
+      // 真实支付模式
+      console.log('使用真实Airwallex支付');
+      
+      const paymentIntent = await airwallexService.createPaymentIntent({
+        planId,
+        amount: selectedPlan.price,
+        customerEmail,
+        customerName
+      });
+
+      // 返回支付信息
+      res.status(200).json({
+        success: true,
+        paymentIntent: {
+          id: paymentIntent.id,
+          client_secret: paymentIntent.client_secret,
+          amount: paymentIntent.amount,
+          currency: paymentIntent.currency,
+          order_id: paymentIntent.order_id
+        },
+        plan: selectedPlan
+      });
+    }
 
   } catch (error: any) {
     console.error('创建支付意图失败:', error);

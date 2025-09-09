@@ -104,7 +104,7 @@ const PromoPopup: React.FC<PromoPopupProps> = ({ onClose }) => {
           {/* Offer Details */}
           <div className="bg-green-50 rounded-2xl p-6 mb-6 border-2 border-green-200">
             <div className="text-center">
-              <div className="text-4xl font-bold text-black mb-2">$4.99 <span className="text-lg text-black">/月</span></div>
+              <div className="text-4xl font-bold text-black mb-2">$5.99 <span className="text-lg text-black">/月</span></div>
               <div className="text-black line-through text-lg mb-3">原价 $11.99/月</div>
               <div className="bg-gradient-to-r from-red-500 to-orange-500 text-white px-6 py-2 rounded-full text-sm font-bold inline-block mb-4">
                 💥 狂省 88% · 每天仅需 ¥1.14
@@ -112,7 +112,7 @@ const PromoPopup: React.FC<PromoPopupProps> = ({ onClose }) => {
               <div className="mb-3">
                 <button 
                   className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-2xl transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-green-500/25 text-base"
-                  onClick={handleClose}
+                  onClick={() => window.location.href = '/checkout'}
                 >
                   立即抢购
                 </button>
@@ -135,7 +135,7 @@ const PromoPopup: React.FC<PromoPopupProps> = ({ onClose }) => {
             </div>
             <div className="flex items-center space-x-2">
               <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-              <span className="text-black text-xs font-medium">💯 30天无理由退款保证</span>
+              <span className="text-black text-xs font-medium">💯 顶级安全防护保障</span>
             </div>
           </div>
 

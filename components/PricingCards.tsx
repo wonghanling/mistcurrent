@@ -30,7 +30,7 @@ const pricingPlans: PricingPlan[] = [
       'Basic Traffic Optimization', 
       'Standard Speed Boost',
       '24/7 Customer Support',
-      '30-day money-back guarantee'
+      '银行级安全加密护航'
     ],
     buttonText: '立即获取',
     buttonStyle: 'secondary'
@@ -50,7 +50,7 @@ const pricingPlans: PricingPlan[] = [
       'Priority Speed Acceleration',
       'Multi-device Support',
       'Premium Customer Support',
-      '30-day money-back guarantee'
+      '顶级双重安全认证'
     ],
     buttonText: '立即获取',
     buttonStyle: 'secondary'
@@ -71,7 +71,7 @@ const pricingPlans: PricingPlan[] = [
       'Priority Speed Acceleration',
       'Multi-device Support',
       'Premium Customer Support',
-      '30-day money-back guarantee'
+      '顶级终极安全保障'
     ],
     buttonText: '立即获取',
     buttonStyle: 'primary'
@@ -93,7 +93,7 @@ const pricingPlans: PricingPlan[] = [
       'Unlimited Device Support',
       'Priority Customer Support',
       'Advanced Analytics Dashboard',
-      '30-day money-back guarantee'
+      '顶级安全防护套餐'
     ],
     buttonText: '立即获取',
     buttonStyle: 'special'
@@ -191,9 +191,9 @@ const PricingCards: React.FC = () => {
                 <svg className="w-4 h-4 text-red-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
-                30-day money-back guarantee
+                顶级安全专享特惠
                 <br />
-                30 天退款保证
+                顶级安全加密保障
               </div>
 
               {/* Features */}
@@ -216,7 +216,7 @@ const PricingCards: React.FC = () => {
 
         {/* Bottom Notice */}
         <div className="text-center mt-12 text-sm text-gray-500">
-          <p>所有套餐均包含 30 天退款保证 | All plans include 30-day money-back guarantee</p>
+          <p>所有套餐均包含 顶级安全加密保障 | All plans include 全球极速网络体验</p>
         </div>
       </div>
     </div>

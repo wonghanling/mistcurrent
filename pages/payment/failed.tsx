@@ -1,72 +1,126 @@
 import React from 'react';
-import Image from 'next/image';
-import { useRouter } from 'next/router';
+import Head from 'next/head';
+import Link from 'next/link';
 
 const PaymentFailed: React.FC = () => {
-  const router = useRouter();
-
   return (
-    <div>
-      {/* 黑色顶部长条 */}
-      <div className="bg-black w-full py-4">
-        <div className="text-center">
-          <h1 className="text-white text-2xl font-bold">MistCurrent</h1>
+    <div className="min-h-screen bg-white">
+      <Head>
+        <title>支付失败 - MistCurrent</title>
+      </Head>
+
+      {/* 顶部导航 */}
+      <header className="border-b border-gray-200 py-6">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-between items-center">
+            <h1 className="text-xl font-bold text-black">MistCurrent</h1>
+            <Link href="/" className="text-gray-500 hover:text-black">
+              返回首页
+            </Link>
+          </div>
         </div>
-      </div>
-      
-      {/* 支付失败页面内容 */}
-      <div className="flex flex-col items-center justify-center py-8 px-4">
-        {/* 中间的图片 - 往上移动 */}
-        <div className="mb-6 mt-8">
-          <Image
-            src="/41.png"
-            alt="World Literacy Day"
-            width={300}
-            height={300}
-            className="max-w-full h-auto"
-          />
-        </div>
+      </header>
+
+      <div className="container mx-auto px-4 py-12 max-w-2xl">
         
-        {/* 动态红色×号圆形标志 - 往上移动 */}
-        <div className="relative mb-8">
-          {/* 外圈动画 */}
-          <div className="w-20 h-20 bg-red-500 rounded-full flex items-center justify-center animate-pulse">
-            {/* 内圈 */}
-            <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center">
-              {/* ×号符号 */}
-              <svg 
-                className="w-10 h-10 text-white animate-bounce" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={3} 
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+        {/* 失败提示 */}
+        <div className="text-center mb-12">
+          <div className="w-16 h-16 border-2 border-black rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="text-black text-2xl font-bold">×</div>
+          </div>
+          <h2 className="text-3xl font-bold text-black mb-4">支付失败</h2>
+          <p className="text-gray-600 text-lg">很抱歉，您的支付未能成功完成</p>
+        </div>
+
+        {/* 可能原因 */}
+        <div className="border border-gray-200 rounded-lg p-8 mb-8">
+          <h3 className="text-xl font-bold text-black mb-6">可能的原因</h3>
+          <div className="space-y-4 text-gray-600">
+            <div className="flex items-start">
+              <span className="text-black mr-3 flex-shrink-0 font-bold">•</span>
+              <span>银行卡余额不足或被冻结</span>
+            </div>
+            <div className="flex items-start">
+              <span className="text-black mr-3 flex-shrink-0 font-bold">•</span>
+              <span>网络连接不稳定</span>
+            </div>
+            <div className="flex items-start">
+              <span className="text-black mr-3 flex-shrink-0 font-bold">•</span>
+              <span>支付信息填写错误</span>
+            </div>
+            <div className="flex items-start">
+              <span className="text-black mr-3 flex-shrink-0 font-bold">•</span>
+              <span>银行安全限制</span>
+            </div>
+            <div className="flex items-start">
+              <span className="text-black mr-3 flex-shrink-0 font-bold">•</span>
+              <span>支付处理超时</span>
             </div>
           </div>
+        </div>
+
+        {/* 解决方案 */}
+        <div className="border border-gray-200 rounded-lg p-8 mb-8">
+          <h3 className="text-xl font-bold text-black mb-6">解决方案</h3>
+          <div className="space-y-4 text-gray-600">
+            <div className="flex items-start">
+              <span className="text-black font-bold mr-3 flex-shrink-0">1.</span>
+              <span>检查银行卡信息是否正确</span>
+            </div>
+            <div className="flex items-start">
+              <span className="text-black font-bold mr-3 flex-shrink-0">2.</span>
+              <span>确认银行卡有足够余额</span>
+            </div>
+            <div className="flex items-start">
+              <span className="text-black font-bold mr-3 flex-shrink-0">3.</span>
+              <span>联系银行确认是否有限制</span>
+            </div>
+            <div className="flex items-start">
+              <span className="text-black font-bold mr-3 flex-shrink-0">4.</span>
+              <span>尝试使用其他支付方式</span>
+            </div>
+            <div className="flex items-start">
+              <span className="text-black font-bold mr-3 flex-shrink-0">5.</span>
+              <span>稍后重新尝试支付</span>
+            </div>
+          </div>
+        </div>
+
+        {/* 操作按钮 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+          <Link
+            href="/checkout"
+            className="bg-black text-white py-4 px-6 text-center rounded-lg hover:bg-gray-800 font-medium transition-colors"
+          >
+            重新尝试支付
+          </Link>
           
-          {/* 外围光圈动画 */}
-          <div className="absolute inset-0 w-20 h-20 bg-red-400 rounded-full animate-ping opacity-30"></div>
+          <Link
+            href="/"
+            className="border border-gray-300 text-gray-700 py-4 px-6 text-center rounded-lg hover:bg-gray-50 font-medium transition-colors"
+          >
+            返回首页
+          </Link>
         </div>
 
-        {/* 支付失败英文文本 */}
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-800 mb-2">Payment Failed!</h2>
-          <p className="text-lg text-gray-600">Sorry, your payment could not be processed.</p>
+        {/* 客服信息 */}
+        <div className="border border-gray-200 rounded-lg p-8 text-center">
+          <h4 className="text-xl font-bold text-black mb-4">需要帮助？</h4>
+          <p className="text-gray-600 mb-6">
+            如果问题持续存在，请联系我们的客服团队
+          </p>
+          <div className="space-y-3 text-gray-600">
+            <div className="flex justify-center items-center">
+              <span className="text-black font-medium mr-2">邮箱:</span>
+              <span className="font-medium">support@mistcurrent.com</span>
+            </div>
+            <div className="flex justify-center items-center">
+              <span className="text-black font-medium mr-2">客服:</span>
+              <span className="font-medium">24/7 在线服务</span>
+            </div>
+          </div>
         </div>
 
-        {/* 返回按钮 */}
-        <button
-          onClick={() => router.push('/')}
-          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
-        >
-          Return to Home
-        </button>
       </div>
     </div>
   );

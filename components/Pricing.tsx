@@ -63,6 +63,13 @@ const PricingCard: React.FC<PricingCardProps> = ({ plan, isYearly }) => {
           </div>
           
           {plan.name.includes('两年') && (
+            <div className="text-xs text-black px-1 flex items-center justify-center">
+              <span className="mr-1">🔥</span>
+              <span>限时优惠 · 节省82%</span>
+            </div>
+          )}
+          
+          {plan.name.includes('两年') && (
             <div className="text-xs text-black px-1">
               前26个月共 ${totalPrice}，之后按年续订
             </div>
@@ -74,7 +81,7 @@ const PricingCard: React.FC<PricingCardProps> = ({ plan, isYearly }) => {
             </div>
           )}
           
-          {plan.currentPrice !== plan.originalPrice && !plan.name.includes('月套餐') && (
+          {plan.currentPrice !== plan.originalPrice && !plan.name.includes('月套餐') && !plan.name.includes('两年') && (
             <div className="text-xs text-black line-through px-1">
               原价 ${plan.originalPrice}/月
             </div>
@@ -86,6 +93,7 @@ const PricingCard: React.FC<PricingCardProps> = ({ plan, isYearly }) => {
       <div className="space-y-2 sm:space-y-3">
         {/* CTA Button */}
         <button
+          onClick={() => window.location.href = '/second'}
           className={`w-full py-2 sm:py-2.5 px-2 sm:px-4 rounded-lg sm:rounded-xl font-semibold transition-all duration-300 text-xs sm:text-sm ${
             plan.isPopular
               ? 'bg-green-600 hover:bg-green-700 text-white'
@@ -100,8 +108,8 @@ const PricingCard: React.FC<PricingCardProps> = ({ plan, isYearly }) => {
         {/* Money Back Guarantee */}
         <div className="text-center">
           <div className="flex items-center justify-center text-xs text-gray-500">
-            <span className="text-red-500 mr-1">🛡</span>
-            30天退款保证
+            <span className="text-red-500 mr-1">⚡</span>
+            秒连全球网络
           </div>
         </div>
       </div>
@@ -207,7 +215,7 @@ const Pricing: React.FC = () => {
             </span>
           </h2>
           <p className="text-xl text-black max-w-3xl mx-auto mb-8">
-            所有方案都享有30天退款保证，随时取消订阅
+            全球100+节点极速覆盖，军工级加密护航网络安全
           </p>
         </div>
 

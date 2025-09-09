@@ -100,8 +100,8 @@ const Hero: React.FC = () => {
               <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mb-2 border border-white/30">
                 <div className="w-3 h-3 bg-green-400 rounded-full"></div>
               </div>
-              <span className="text-sm font-semibold text-green-300">30天退款保证</span>
-              <span className="text-xs text-white">无条件全额退款</span>
+              <span className="text-sm font-semibold text-green-300">10Gbps极速连接</span>
+              <span className="text-xs text-white">全球网络秒速畅联</span>
             </div>
             <div className="flex flex-col items-center space-y-2">
               <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mb-2 border border-white/30">
