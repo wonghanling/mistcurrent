@@ -1,11 +1,11 @@
 // 订单创建 API 端点
 import { NextApiRequest, NextApiResponse } from 'next';
-import { createClient } from '@supabase/supabase-js';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
 // 初始化Supabase客户端（可选，支持模拟模式）
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-let supabase = null;
+let supabase: SupabaseClient | null = null;
 
 if (supabaseUrl && supabaseServiceKey && supabaseUrl !== 'your_supabase_url/') {
   try {
@@ -75,6 +75,13 @@ export default async function handler(
       
     } else {
       // 真实模式 - 保存到Supabase
+      if (!supabase) {
+        return res.status(500).json({
+          success: false,
+          error: 'Supabase未正确初始化'
+        });
+      }
+      
       const { data, error } = await supabase
         .from('orders')
         .insert([orderData])
