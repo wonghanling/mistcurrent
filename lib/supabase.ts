@@ -6,7 +6,7 @@
 
   export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
-  // 用户注册
+  // 密码注册
   export const signUp = async (email: string, password: string) => {
     const { data, error } = await supabase.auth.signUp({
       email,
@@ -15,7 +15,7 @@
     return { data, error }
   }
 
-  // 用户登录
+  // 密码登录
   export const signIn = async (email: string, password: string) => {
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
@@ -24,14 +24,40 @@
     return { data, error }
   }
 
-  // 用户退出
+  // 退出
   export const signOut = async () => {
     const { error } = await supabase.auth.signOut()
     return { error }
   }
 
-  // 获取当前用户
+  // 当前用户
   export const getCurrentUser = async () => {
     const { data: { user }, error } = await supabase.auth.getUser()
     return { user, error }
   }
+
+  // 发送邮箱验证码（可用于登录/注册）
+  export const sendEmailOtp = async (email: string, shouldCreateUser = false) => {
+    const { data, error } = await supabase.auth.signInWithOtp({
+      email,
+      options: { shouldCreateUser }
+    })
+    return { data, error }
+  }
+
+  // 校验邮箱验证码
+  export const verifyEmailOtp = async (email: string, token: string) => {
+    const { data, error } = await supabase.auth.verifyOtp({
+      email,
+      token,
+      type: 'email'
+    })
+    return { data, error }
+  }
+
+  // 设置密码（验证码注册后可设置）
+  export const updatePassword = async (password: string) => {
+    const { data, error } = await supabase.auth.updateUser({ password })
+    return { data, error }
+  }
+
