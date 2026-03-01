@@ -173,7 +173,7 @@ const PricingCards: React.FC = () => {
               {/* Action Button */}
               <div className="mb-8">
                 <button
-                  onClick={() => window.location.href = `/checkout?plan=${plan.id}`}
+                   onClick={() => window.location.href = `/login?next=${encodeURIComponent(`/checkout?plan=${plan.id}`)}`}
                   className={`w-full py-3 px-6 rounded-full font-medium text-sm transition-colors ${
                     plan.buttonStyle === 'special'
                       ? 'bg-green-600 text-white hover:bg-green-700'
