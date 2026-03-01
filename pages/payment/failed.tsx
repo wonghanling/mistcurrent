@@ -89,7 +89,7 @@ const PaymentFailed: React.FC = () => {
         {/* 操作按钮 */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
           <Link
-            href="/checkout"
+           href="/login?next=/checkout"
             className="bg-black text-white py-4 px-6 text-center rounded-lg hover:bg-gray-800 font-medium transition-colors"
           >
             重新尝试支付
