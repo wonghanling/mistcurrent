@@ -112,7 +112,7 @@ const PromoPopup: React.FC<PromoPopupProps> = ({ onClose }) => {
               <div className="mb-3">
                 <button 
                   className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-2xl transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-green-500/25 text-base"
-                  onClick={() => window.location.href = '/checkout'}
+                 window.location.href = '/login?next=/checkout'
                 >
                   立即抢购
                 </button>
