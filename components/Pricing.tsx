@@ -93,7 +93,7 @@ const PricingCard: React.FC<PricingCardProps> = ({ plan, isYearly }) => {
       <div className="space-y-2 sm:space-y-3">
         {/* CTA Button */}
         <button
-          onClick={() => window.location.href = '/second'}
+          window.location.href = '/login?next=/checkout'
           className={`w-full py-2 sm:py-2.5 px-2 sm:px-4 rounded-lg sm:rounded-xl font-semibold transition-all duration-300 text-xs sm:text-sm ${
             plan.isPopular
               ? 'bg-green-600 hover:bg-green-700 text-white'
