@@ -1,7 +1,12 @@
+import { GetServerSideProps } from 'next';
 import React from 'react';
 import Head from 'next/head';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  return { redirect: { destination: '/about', permanent: false } };
+};
 
 const TermsOfService: React.FC = () => {
   return (

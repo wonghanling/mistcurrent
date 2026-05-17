@@ -1,6 +1,11 @@
+import { GetServerSideProps } from 'next';
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  return { redirect: { destination: '/about', permanent: false } };
+};
 
 // 定义类型接口
 interface OrderData {
