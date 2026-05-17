@@ -58,7 +58,9 @@ const Hero: React.FC = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
             <button 
-              window.location.href = '/login?next=/checkout?plan=2year'
+              onClick={() => {
+                window.location.href = '/login?next=/checkout?plan=2year';
+              }}
               className="bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-8 rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-lg border border-green-500/30"
             >
               立即获取-￥2.19/月

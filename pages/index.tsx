@@ -91,7 +91,9 @@ const Home: React.FC = () => {
             <div className="flex flex-col items-center relative">
               <div className="relative">
                 <button 
-                  window.location.href = '/login?next=/checkout?plan=2year'
+                  onClick={() => {
+                    window.location.href = '/login?next=/checkout?plan=2year';
+                  }}
                   className="w-24 h-24 bg-green-600 hover:bg-green-700 text-white font-bold rounded-full transition-all duration-300 hover:scale-110 shadow-lg border-4 border-green-500/30 flex items-center justify-center group"
                 >
                   {/* 电源标志 */}

@@ -139,7 +139,7 @@ const LoadingTest: React.FC = () => {
         <div className="text-center">
           <p className="text-xs text-gray-400 mb-4">请勿关闭此页面</p>
           <button
-            onClick={() => router.push('/login?next=/checkout')
+            onClick={() => router.push('/login?next=/checkout')}
             className="text-sm text-gray-500 hover:text-black transition-colors"
           >
             取消
